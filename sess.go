@@ -275,13 +275,13 @@ func (s *UDPSession) WriteBuffers(v [][]byte) (n int, err error) {
 			for _, b := range v {
 				n += len(b)
 				for {
-					if len(b) <= int(s.kcp.mss) {
+					//if len(b) <= int(s.kcp.mss) {
 						s.kcp.Send(b)
 						break
-					} else {
-						s.kcp.Send(b[:s.kcp.mss])
-						b = b[s.kcp.mss:]
-					}
+//					} else {
+//						s.kcp.Send(b[:s.kcp.mss])
+//						b = b[s.kcp.mss:]
+//					}
 				}
 			}
 
